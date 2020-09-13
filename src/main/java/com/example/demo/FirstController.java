@@ -8,7 +8,7 @@ public class FirstController {
 
     @RequestMapping("/")
     public String hello() {
-        return "Hello Spring";
+        return "Hello Software Engineering";
     }
 
 }
