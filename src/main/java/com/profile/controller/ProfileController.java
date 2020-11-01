@@ -26,7 +26,6 @@ import com.amazonaws.services.s3.model.PutObjectRequest;
 @Controller
 public class ProfileController {
 
-
     @Value("${baseUrl}")
     private String baseUrl;
 
@@ -45,12 +44,16 @@ public class ProfileController {
 
     @GetMapping("/home")
     public ModelAndView loginPage() {
-        return new ModelAndView("index");
+        ModelAndView mv = new ModelAndView("index");
+        mv.addObject("homeUrl", baseUrl + "/home");
+        return mv;
     }
 
     @GetMapping("/signup")
     public ModelAndView signupPage() {
-        return new ModelAndView("signup");
+        ModelAndView mv = new ModelAndView("signup");
+        mv.addObject("homeUrl", baseUrl + "/home");
+        return mv;
     }
 
     @PostMapping(path="/login")
@@ -67,6 +70,7 @@ public class ProfileController {
 
         ModelAndView mv = new ModelAndView("profile");
         mv.addObject("user", user);
+        mv.addObject("homeUrl", baseUrl + "/home");
         return mv;
     }
 
@@ -95,8 +99,6 @@ public class ProfileController {
 
         return mv;
     }
-
-
 
     @PostMapping(value = "/edit")
     public ModelAndView edit(@RequestParam MultipartFile picture,
@@ -144,6 +146,7 @@ public class ProfileController {
 
         ModelAndView mv = new ModelAndView("profile");
         mv.addObject("user", user);
+        mv.addObject("homeUrl", baseUrl + "/home");
         return mv;
 
     }
