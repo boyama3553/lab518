@@ -46,6 +46,7 @@ public class ProfileController {
     public ModelAndView loginPage() {
         ModelAndView mv = new ModelAndView("index");
         mv.addObject("homeUrl", baseUrl + "/home");
+        mv.addObject("signupUrl", baseUrl + "/signup");
         return mv;
     }
 
