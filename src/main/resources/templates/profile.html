@@ -35,28 +35,17 @@
         </div>
     </nav>
 
-    <div class="container justify-content-center" id="profileDisplay">
-        <img th:src="${user.getPicture()}" class="rounded mx-auto d-block w-25" alt="user profile picture">
-        <table class="table table-striped">
-            <tbody>
-                <tr>
-                    <th scope="row">Username</th>
-                    <td th:text="${user.getUsername()}"></td>
-                </tr>
-                <tr>
-                    <th scope="row">First Name</th>
-                    <td th:text="${user.getFirstName()}"></td>
-                </tr>
-                <tr>
-                    <th scope="row">Last Name</th>
-                    <td th:text="${user.getLastName()}"></td>
-                </tr>
-                <tr>
-                    <th scope="row">Biography</th>
-                    <td th:text="${user.getBiography()}"></td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="container" id="profileDisplay">
+        <div class="row">
+            <div class="col-12 col-md-4">
+                <img th:src="${user.getPicture()}" class="rounded mx-auto d-block w-100" alt="user profile picture">
+            </div>
+
+            <div class="col-12 col-md-8">
+                <h1 th:text="${user.getFirstName()} + ' ' + ${user.getLastName()}"></h1>
+                <p th:text="${user.getBiography()}"></p>
+            </div>
+        </div>
         <button type="button" class="btn btn-primary" id="btnEdit">Edit</button>
     </div>
 

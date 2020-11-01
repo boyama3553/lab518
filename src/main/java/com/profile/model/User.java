@@ -1,10 +1,6 @@
 package com.profile.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class User {
@@ -24,7 +20,7 @@ public class User {
 	@Column
 	private String lastName;
 
-	@Column
+	@Lob
 	private String biography;
 
 	@Column
@@ -56,7 +52,7 @@ public class User {
 
 	public String getFirstName() {
 		if (firstName == null || firstName.isBlank()) {
-			return "First name here";
+			return "Firstname";
 		}
 		return firstName;
 	}
@@ -67,7 +63,7 @@ public class User {
 
 	public String getLastName() {
 		if (lastName == null || lastName.isBlank()) {
-			return "Last name here";
+			return "Lastname";
 		}
 		return lastName;
 	}
