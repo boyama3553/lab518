@@ -42,6 +42,14 @@ public class ProfileController {
     @Qualifier(value="userRepository")
     private UserRepository userRepository;
 
+    @GetMapping("/")
+    public ModelAndView home() {
+        ModelAndView mv = new ModelAndView("index");
+        mv.addObject("homeUrl", baseUrl + "/home");
+        mv.addObject("signupUrl", baseUrl + "/signup");
+        return mv;
+    }
+
     @GetMapping("/home")
     public ModelAndView loginPage() {
         ModelAndView mv = new ModelAndView("index");
